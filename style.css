@@ -25,10 +25,6 @@ html {
   overflow-x: hidden;
 }
 
-section {
-  padding: 2rem 9%;
-}
-
 .heading {
   text-align: center;
   font-size: 4rem;
@@ -44,39 +40,44 @@ section {
 
 .btn {
   display: inline-block;
-  margin-top: 1rem;
   border-radius: 5rem;
-  background: #333;
-  color: #fff;
+  background: rgb(31, 109, 192);
+  color: rgb(224, 197, 40);
   padding: .9rem 3.5rem;
   cursor: pointer;
-  font-size: 1.7rem;
+  font-size: 3rem;
+  margin-top: 3rem;
 }
 
 .btn:hover {
-  background: var(---pink);
+  background: rgb(2, 31, 61);
+  color: aquamarine;
 }
 
+.btn>i {
+  font-size: 2rem;
+  padding: .9rem 1.5rem;
+  display: inline-block;
+}
 
 /* header section style */
 header {
   position: fixed;
-  min-height: 10vh;
+  min-height: 8vh;
   top: 0;
   left: 0;
   right: 0;
-  background: #fff;
-  padding: 2rem 9%;
+  background: #50e3ee;
+  padding: 2rem 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
 }
 
 header .logo {
-  font-size: 3rem;
-  color: #333;
+  font-size: 3.5rem;
+  color: #681818;
   font-weight: bolder;
 }
 
@@ -91,9 +92,16 @@ header .navbar ul li {
 
 
 header .navbar ul>li>a {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  padding: 0 4rem;
+  color: rgb(13, 74, 139);
+}
+
+header .navbar ul li:nth-child(1) a {
+  font-size: 2.5rem;
   padding: 0 3rem;
-  color: var(---black-color);
+  color: rgb(83, 73, 16);
+  font-weight: bolder;
 }
 
 header .navbar ul>li>a:hover {
@@ -102,12 +110,165 @@ header .navbar ul>li>a:hover {
 
 
 /* hero section style */
+.main {
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+}
 
 .hero {
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero input {
+  display: none;
+}
+
+.controls {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+}
+
+.controls label {
+  width: 40px;
+  height: 40px;
+  background: #110202;
+  border-radius: 40px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: .5s;
+}
+
+.hero input:nth-child(1):checked ~ .controls label:nth-child(1),
+.hero input:nth-child(2):checked ~ .controls label:nth-child(2),
+.hero input:nth-child(3):checked ~ .controls label:nth-child(3) {
+  opacity: 1;
+  width: 90px;
+}
+
+.hero-container {
+  position: relative;
+  width: 300vw;
+  display: flex;
+  transition: .5s;
+}
+
+.hero-container .hero-container-1, .hero-container .hero-container-2, .hero-container .hero-container-3  {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 10rem 0 2rem;
+}
+
+.hero input:nth-child(1):checked ~ .hero-container {
+  left: 0;
+}
+
+.hero input:nth-child(2):checked ~ .hero-container {
+  left: -100vw;
+}
+
+.hero input:nth-child(3):checked ~ .hero-container {
+  left: -200vw;
+}
+
+/* .hero-container-1 {
   display: flex;
   align-items: center;
-  min-height: 100vh;
-  background: url(images/organ-hall-chisinau-moldova_1268-18335.avif) no-repeat;
-  background-position: bottom;
-  background-size: 100% 90%;
+  justify-content: space-between;
+  min-height: 85vh;
+  width: 90%;
+  border-radius: 10rem;
+  border: 10px solid #FFF9F0;
+} */
+
+.hero .hero-container-1 .hero-info {
+  text-align: center;
+  padding: 2rem 4%;
+}
+
+.hero .hero-container-1 h3 {
+  font-size: 8.5rem;
+  line-height: 1;
+  color: rgb(13, 74, 139);
+  text-align: center;
+}
+
+.hero .hero-container-1 p {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  line-height: 1.5;
+  color: #050505;
+  text-align: center;
+}
+
+.hero-container-2 {
+  background-color: #FFF9F0;
+}
+
+.hero .hero-container-2 h3 {
+  font-size: 8.5rem;
+  line-height: 1;
+  color: rgb(13, 74, 139);
+  text-align: center;
+}
+
+.hero .hero-container-2 .hero-info {
+  text-align: center;
+  padding: 2rem 4%;
+}
+
+.hero .hero-container-2 p {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  line-height: 1.5;
+  color: #050505;
+  text-align: center;
+}
+
+.hero .hero-container-2 .hero-img img{
+  position: relative;
+  width: 100%;
+  float: right;
+  height: 100%;
+  border-radius: 10rem;
+}
+
+.hero .hero-container-3 {
+  padding-right: 0;
+}
+
+.hero .hero-container-3 .hero-info {
+  text-align: center;
+  padding: 2rem 4%;
+}
+
+.hero .hero-container-3 h3 {
+  font-size: 8.5rem;
+  line-height: 1;
+  color: rgb(13, 74, 139);
+  text-align: center;
+}
+
+.hero .hero-container-3 p {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  line-height: 1.5;
+  color: #050505;
+  text-align: center;
+}
+
+.hero .hero-container-3 .hero-img img{
+  position: relative;
+  width: 100%;
+  float: right;
+  height: 100%;
 }
